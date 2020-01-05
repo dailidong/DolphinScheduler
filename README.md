@@ -50,6 +50,7 @@ Overload processing: Task queue mechanism, the number of schedulable tasks on a 
 ### System partial screenshot
 
 ![image](https://user-images.githubusercontent.com/48329107/61368744-1f5f3b00-a8c1-11e9-9cf1-10f8557a6b3b.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdailidong%2FDolphinScheduler.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdailidong%2FDolphinScheduler?ref=badge_shield)
 
 ![image](https://user-images.githubusercontent.com/48329107/61368966-9dbbdd00-a8c1-11e9-8dcc-a9469d33583e.png)
 
@@ -113,3 +114,6 @@ Please refer to [LICENSE](https://github.com/apache/incubator-dolphinscheduler/b
 
 
 
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdailidong%2FDolphinScheduler.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdailidong%2FDolphinScheduler?ref=badge_large)
