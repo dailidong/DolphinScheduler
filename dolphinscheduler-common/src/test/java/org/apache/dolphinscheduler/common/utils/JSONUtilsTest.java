@@ -22,6 +22,7 @@ import org.apache.dolphinscheduler.common.enums.Direct;
 import org.apache.dolphinscheduler.common.model.TaskNode;
 import org.apache.dolphinscheduler.common.process.Property;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -80,8 +81,8 @@ public class JSONUtilsTest {
         String jsonStr = "{\"a\":\"b\",\"b\":\"d\"}";
 
         ObjectNode objectNode = JSONUtils.createObjectNode();
-        objectNode.put("a","b");
-        objectNode.put("b","d");
+        objectNode.put("a", "b");
+        objectNode.put("b", "d");
         String s = JSONUtils.toJsonString(objectNode);
         Assert.assertEquals(s, jsonStr);
     }
@@ -246,8 +247,60 @@ public class JSONUtilsTest {
                 + "\"timeout\":\"{}\",\"type\":\"SHELL\",\"workerGroup\":\"default\"}";
 
         TaskNode taskNode = JSONUtils.parseObject(a, TaskNode.class);
-
         Assert.assertTrue(true);
     }
 
+    @Test
+    public void parseObjectToClassTest() {
+        String a = "{\"taskInstanceId\":15,\"status\":7}";
+
+        TaskCommandTest c = JSONUtils.parseObject(a, TaskCommandTest.class);
+        Assert.assertEquals(7, c.getStatus());
+    }
+
+    private static class TaskCommandTest implements Serializable {
+
+        private int taskInstanceId;
+        private int status;
+
+        public TaskCommandTest() {
+        }
+
+        public TaskCommandTest(int taskInstanceId, int status) {
+            this.taskInstanceId = taskInstanceId;
+            this.status = status;
+        }
+
+        public TaskCommandTest(String status, String taskInstanceId) {
+            this.taskInstanceId = Integer.valueOf(taskInstanceId);
+            this.status = Integer.valueOf(status);
+        }
+
+        public int getTaskInstanceId() {
+            return taskInstanceId;
+        }
+
+        public void setTaskInstanceId(int taskInstanceId) {
+            this.taskInstanceId = taskInstanceId;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+
+        @Override
+        public String toString() {
+            return "DBTaskAckCommand{"
+                    + "taskInstanceId="
+                    + taskInstanceId
+                    + ", status="
+                    + status
+                    + '}';
+        }
+    }
 }
